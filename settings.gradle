@@ -1,1 +1,1 @@
-include ':app'
+include ':app', ':alertdialog', ':autoscrollrecycleview'

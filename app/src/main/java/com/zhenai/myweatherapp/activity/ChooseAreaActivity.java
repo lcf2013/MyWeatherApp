@@ -156,6 +156,7 @@ public class ChooseAreaActivity extends Activity {
         } else {
             address = "http://www.weather.com.cn/data/list3/city.xml";
         }
+        Log.d("err",address);
         showProgressDialog();
         HttpUtil.sendHttpRequest(address, new HttpCallbackListener() {
             @Override

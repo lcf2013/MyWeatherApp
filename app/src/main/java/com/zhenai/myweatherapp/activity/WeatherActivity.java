@@ -13,6 +13,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.zhenai.myweatherapp.R;
+import com.zhenai.myweatherapp.service.AutoUpdateService;
 import com.zhenai.myweatherapp.util.HttpCallbackListener;
 import com.zhenai.myweatherapp.util.HttpUtil;
 import com.zhenai.myweatherapp.util.Utility;
@@ -88,10 +89,13 @@ public class WeatherActivity extends AppCompatActivity {
         temp1.setText(prefs.getString("temp1",""));
         temp2.setText(prefs.getString("temp2",""));
         weatherDesp.setText(prefs.getString("weather_desp",""));
-        publishText.setText("今天"+prefs.getString("publish_time",""));
-        currentData.setText(prefs.getString("currente_date",""));
+        publishText.setText("今天" + prefs.getString("publish_time", ""));
+        currentData.setText(prefs.getString("currente_date", ""));
         weatherInfoLayout.setVisibility(View.VISIBLE);
         cityName.setVisibility(View.VISIBLE);
+
+        Intent intent=new Intent(this, AutoUpdateService.class);
+        startService(intent);
     }
 
     private void queryWeatherCode(String countryCode) {
